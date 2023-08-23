@@ -1,0 +1,31 @@
+questions = [
+    ["What is the capital of France?", "Paris", "Berlin", "Madrid", "Rome", 1],
+    ["Which planet is known as the Red Planet?", "Venus", "Mars", "Jupiter", "Saturn", 2],
+    ["What is the largest mammal in the world?", "Elephant", "Giraffe", "Blue Whale", "Lion", 3],
+    ["Who wrote the play 'Romeo and Juliet'?", "Charles Dickens", "Jane Austen", "William Shakespeare", "Leo Tolstoy", 3],
+    ["What is the chemical symbol for water?", "H2O", "CO2", "O2", "NaCl", 1],
+]
+
+levels = [1000, 2000, 3000, 5000, 10000]
+money = 0
+
+for i in range(len(questions)):
+    question = questions[i]
+    print(f"\n\nQuestion for Rs. {levels[i]}")
+    print(f"{question[0]}")
+    print(f"a. {question[1]}          b. {question[2]} ")
+    print(f"c. {question[3]}          d. {question[4]} ")
+    reply = input("Enter your answer (1, 2, 3, 4) or 0 to quit:\n")
+
+    if reply == '0':
+        money = levels[i-1]
+        break
+    if int(reply) == question[-1]:
+        print(f"Correct answer, you have won Rs. {levels[i]}")
+        money = levels[i]
+    else:
+        print("Wrong answer!")
+        break
+
+print(f"Your take-home money is Rs. {money}")
+
